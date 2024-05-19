@@ -1,0 +1,11 @@
+{
+    "name": "archict/archict",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Archict\\Archict\\": "src/"
+        }
+    },
+    "require": {}
+}
