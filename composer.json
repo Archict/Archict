@@ -7,5 +7,7 @@
             "Archict\\Archict\\": "src/"
         }
     },
-    "require": {}
+    "require": {
+        "php": ">= 8.2"
+    }
 }

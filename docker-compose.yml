@@ -1,0 +1,24 @@
+services:
+  nginx:
+    image: nginx:alpine
+    volumes:
+      - ./default.conf:/etc/nginx/conf.d/default.conf:ro
+      - .:/var/www/html/:ro
+      - ./logs/nginx:/var/log/nginx
+    ports:
+      - "8080:80"
+    networks:
+      - internal
+  fpm:
+    image: php:8.2-fpm
+    volumes:
+      - .:/var/www/html/:ro
+      - ./logs/php:/var/log/fpm-php.www.log
+    ports:
+      - ":9000"
+    networks:
+      - internal
+
+networks:
+  internal:
+    driver: bridge
