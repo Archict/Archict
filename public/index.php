@@ -25,4 +25,11 @@
 
 declare(strict_types=1);
 
-phpinfo();
+use Archict\Core\Core;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+$core = Core::build();
+$core->load();
+
+echo 'ok';
