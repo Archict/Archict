@@ -26,10 +26,15 @@
 declare(strict_types=1);
 
 use Archict\Core\Core;
+use Archict\Router\HTTP\ResponseHandler;
+use Archict\Router\Router;
+use GuzzleHttp\Psr7\ServerRequest;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
 $core = Core::build();
 $core->load();
-
-echo 'ok';
+$router   = $core->service_manager->get(Router::class);
+$response = $router->route(ServerRequest::fromGlobals());
+$handler  = new ResponseHandler();
+$handler->writeResponse($response);
