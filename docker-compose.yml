@@ -5,4 +5,3 @@ services:
       - "8080:80"
     volumes: # You can comment out the volumes if not needed
       - ./logs/nginx:/var/log/nginx
-      - .:/var/www/archict
