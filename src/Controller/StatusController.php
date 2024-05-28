@@ -27,15 +27,20 @@ declare(strict_types=1);
 
 namespace Archict\Archict\Controller;
 
+use Archict\Archict\Services\StatusService;
 use Archict\Router\RequestHandler;
+use Archict\Router\ResponseFactory;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-final class StatusController implements RequestHandler
+final readonly class StatusController implements RequestHandler
 {
+    public function __construct(private StatusService $status_service)
+    {
+    }
 
     public function handle(ServerRequestInterface $request): ResponseInterface|string
     {
-        return 'status';
+        return ResponseFactory::build()->json($this->status_service->getCurrentStatus())->get();
     }
 }

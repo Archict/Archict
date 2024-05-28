@@ -25,28 +25,30 @@
 
 declare(strict_types=1);
 
-namespace Archict\Archict;
+namespace Archict\Archict\Services;
 
-use Archict\Archict\Controller\HomeController;
-use Archict\Archict\Controller\StatusController;
-use Archict\Archict\Services\StatusService;
-use Archict\Brick\ListeningEvent;
 use Archict\Brick\Service;
-use Archict\Router\Method;
-use Archict\Router\RouteCollectorEvent;
 
 #[Service]
-final readonly class Application
+final class StatusService
 {
-    public function __construct(
-        private StatusService $status_service,
-    ) {
+    public function getCurrentStatus(): array
+    {
+        return [
+            'status'       => 'OK',
+            'memory_usage' => $this->getMemoryUsage(),
+        ];
     }
 
-    #[ListeningEvent]
-    public function collectRoutes(RouteCollectorEvent $collector): void
+    private function getMemoryUsage(): string
     {
-        $collector->addRoute(Method::GET, '', new HomeController());
-        $collector->addRoute('GET', '/status', new StatusController($this->status_service));
+
+        $free     = shell_exec('free');
+        $free     = trim($free);
+        $free_arr = explode("\n", $free);
+        $mem      = explode(" ", $free_arr[1]);
+        $mem      = array_filter($mem);
+        $mem      = array_merge($mem);
+        return sprintf('%.2f%%', $mem[2] / $mem[1] * 100);
     }
 }
