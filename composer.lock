@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0744ae7a5251031d424de6ef2787c86c",
+    "content-hash": "5e2f4a2be895a9bed28a979605f2137b",
     "packages": [
         {
             "name": "archict/brick",
@@ -97,16 +97,16 @@
         },
         {
             "name": "archict/router",
-            "version": "v0.1.0",
+            "version": "v0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Archict/router.git",
-                "reference": "26f8cc51ca4c59eb3e0a09b2838ead26e2dd7263"
+                "reference": "b971a36e1468a4072de1c9b3c7de0a997908b398"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Archict/router/zipball/26f8cc51ca4c59eb3e0a09b2838ead26e2dd7263",
-                "reference": "26f8cc51ca4c59eb3e0a09b2838ead26e2dd7263",
+                "url": "https://api.github.com/repos/Archict/router/zipball/b971a36e1468a4072de1c9b3c7de0a997908b398",
+                "reference": "b971a36e1468a4072de1c9b3c7de0a997908b398",
                 "shasum": ""
             },
             "require": {
@@ -138,9 +138,9 @@
             "description": "Simple HTTP router",
             "support": {
                 "issues": "https://github.com/Archict/router/issues",
-                "source": "https://github.com/Archict/router/tree/v0.1.0"
+                "source": "https://github.com/Archict/router/tree/v0.2.0"
             },
-            "time": "2024-05-08T07:32:06+00:00"
+            "time": "2024-05-27T16:48:50+00:00"
         },
         {
             "name": "azjezz/psl",

@@ -10,7 +10,7 @@
     "require": {
         "php": ">= 8.2",
         "archict/core": "^0.2.1",
-        "archict/router": "^0.1.0",
+        "archict/router": "^0.2.0",
         "guzzlehttp/psr7": "^2.6"
     }
 }
