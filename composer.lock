@@ -48,16 +48,16 @@
         },
         {
             "name": "archict/core",
-            "version": "v0.2.1",
+            "version": "v0.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Archict/core.git",
-                "reference": "8c18791403f1596a5762753e89fa3c2d99ed5a1d"
+                "reference": "75fdd83e0268609b34d9e48332aa1379f952d464"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Archict/core/zipball/8c18791403f1596a5762753e89fa3c2d99ed5a1d",
-                "reference": "8c18791403f1596a5762753e89fa3c2d99ed5a1d",
+                "url": "https://api.github.com/repos/Archict/core/zipball/75fdd83e0268609b34d9e48332aa1379f952d464",
+                "reference": "75fdd83e0268609b34d9e48332aa1379f952d464",
                 "shasum": ""
             },
             "require": {
@@ -91,9 +91,9 @@
             "description": "Heart of Archict, this library load and manage Bricks",
             "support": {
                 "issues": "https://github.com/Archict/core/issues",
-                "source": "https://github.com/Archict/core/tree/v0.2.1"
+                "source": "https://github.com/Archict/core/tree/v0.2.2"
             },
-            "time": "2024-05-14T06:54:08+00:00"
+            "time": "2024-05-28T16:36:08+00:00"
         },
         {
             "name": "archict/router",
