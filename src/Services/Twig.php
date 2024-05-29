@@ -25,32 +25,24 @@
 
 declare(strict_types=1);
 
-namespace Archict\Archict\Controller;
+namespace Archict\Archict\Services;
 
-use Archict\Archict\Services\Twig;
-use Archict\Router\RequestHandler;
-use Psr\Http\Message\ServerRequestInterface;
+use Archict\Brick\Service;
+use Twig\Environment;
+use Twig\Loader\FilesystemLoader;
 
-final readonly class HomeController implements RequestHandler
+#[Service]
+final readonly class Twig
 {
-    public function __construct(private Twig $twig)
+    private Environment $twig;
+
+    public function __construct()
     {
+        $this->twig = new Environment(new FilesystemLoader(__DIR__ . '/../../templates/'));
     }
 
-    public function handle(ServerRequestInterface $request): string
+    public function render(string $template_name, array $context = []): string
     {
-        $backgrounds = [
-            'linear-gradient(to right, #f0c27b, #4b1248)',
-            'linear-gradient(to right, #ff4e50, #f9d423)',
-            'linear-gradient(to right, #add100, #7b920a)',
-            'linear-gradient(to right, #fbd3e9, #bb377d)',
-        ];
-
-        return $this->twig->render(
-            'home.html.twig',
-            [
-                'background' => $backgrounds[random_int(0, count($backgrounds) - 1)],
-            ]
-        );
+        return $this->twig->render($template_name, $context);
     }
 }

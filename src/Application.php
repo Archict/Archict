@@ -30,6 +30,7 @@ namespace Archict\Archict;
 use Archict\Archict\Controller\HomeController;
 use Archict\Archict\Controller\StatusController;
 use Archict\Archict\Services\StatusService;
+use Archict\Archict\Services\Twig;
 use Archict\Brick\ListeningEvent;
 use Archict\Brick\Service;
 use Archict\Router\Method;
@@ -40,13 +41,14 @@ final readonly class Application
 {
     public function __construct(
         private StatusService $status_service,
+        private Twig $twig,
     ) {
     }
 
     #[ListeningEvent]
     public function collectRoutes(RouteCollectorEvent $collector): void
     {
-        $collector->addRoute(Method::GET, '', new HomeController());
+        $collector->addRoute(Method::GET, '', new HomeController($this->twig));
         $collector->addRoute('GET', '/status', new StatusController($this->status_service));
     }
 }
