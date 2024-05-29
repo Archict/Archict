@@ -25,14 +25,32 @@
 
 declare(strict_types=1);
 
-use Archict\Core\Core;
-use Archict\Router\Router;
-use GuzzleHttp\Psr7\ServerRequest;
+namespace Archict\Archict\Controller;
 
-require_once __DIR__ . '/../vendor/autoload.php';
+use Archict\Archict\Services\Twig;
+use Archict\Router\RequestHandler;
+use Psr\Http\Message\ServerRequestInterface;
 
-$core = Core::build();
-$core->load();
-$router = $core->service_manager->get(Router::class);
-$router->route(ServerRequest::fromGlobals());
-$router->response();
+final readonly class HomeController implements RequestHandler
+{
+    public function __construct(private Twig $twig)
+    {
+    }
+
+    public function handle(ServerRequestInterface $request): string
+    {
+        $backgrounds = [
+            'linear-gradient(to right, #f0c27b, #4b1248)',
+            'linear-gradient(to right, #ff4e50, #f9d423)',
+            'linear-gradient(to right, #add100, #7b920a)',
+            'linear-gradient(to right, #fbd3e9, #bb377d)',
+        ];
+
+        return $this->twig->render(
+            'home.html.twig',
+            [
+                'background' => $backgrounds[random_int(0, count($backgrounds) - 1)],
+            ]
+        );
+    }
+}

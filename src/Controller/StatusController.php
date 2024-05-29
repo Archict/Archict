@@ -25,14 +25,22 @@
 
 declare(strict_types=1);
 
-use Archict\Core\Core;
-use Archict\Router\Router;
-use GuzzleHttp\Psr7\ServerRequest;
+namespace Archict\Archict\Controller;
 
-require_once __DIR__ . '/../vendor/autoload.php';
+use Archict\Archict\Services\StatusService;
+use Archict\Router\RequestHandler;
+use Archict\Router\ResponseFactory;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 
-$core = Core::build();
-$core->load();
-$router = $core->service_manager->get(Router::class);
-$router->route(ServerRequest::fromGlobals());
-$router->response();
+final readonly class StatusController implements RequestHandler
+{
+    public function __construct(private StatusService $status_service)
+    {
+    }
+
+    public function handle(ServerRequestInterface $request): ResponseInterface|string
+    {
+        return ResponseFactory::build()->json($this->status_service->getCurrentStatus())->get();
+    }
+}

@@ -25,14 +25,24 @@
 
 declare(strict_types=1);
 
-use Archict\Core\Core;
-use Archict\Router\Router;
-use GuzzleHttp\Psr7\ServerRequest;
+namespace Archict\Archict\Services;
 
-require_once __DIR__ . '/../vendor/autoload.php';
+use Archict\Brick\Service;
+use Twig\Environment;
+use Twig\Loader\FilesystemLoader;
 
-$core = Core::build();
-$core->load();
-$router = $core->service_manager->get(Router::class);
-$router->route(ServerRequest::fromGlobals());
-$router->response();
+#[Service]
+final readonly class Twig
+{
+    private Environment $twig;
+
+    public function __construct()
+    {
+        $this->twig = new Environment(new FilesystemLoader(__DIR__ . '/../../templates/'));
+    }
+
+    public function render(string $template_name, array $context = []): string
+    {
+        return $this->twig->render($template_name, $context);
+    }
+}

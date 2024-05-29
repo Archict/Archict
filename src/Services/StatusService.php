@@ -25,14 +25,30 @@
 
 declare(strict_types=1);
 
-use Archict\Core\Core;
-use Archict\Router\Router;
-use GuzzleHttp\Psr7\ServerRequest;
+namespace Archict\Archict\Services;
 
-require_once __DIR__ . '/../vendor/autoload.php';
+use Archict\Brick\Service;
 
-$core = Core::build();
-$core->load();
-$router = $core->service_manager->get(Router::class);
-$router->route(ServerRequest::fromGlobals());
-$router->response();
+#[Service]
+final class StatusService
+{
+    public function getCurrentStatus(): array
+    {
+        return [
+            'status'       => 'OK',
+            'memory_usage' => $this->getMemoryUsage(),
+        ];
+    }
+
+    private function getMemoryUsage(): string
+    {
+
+        $free     = shell_exec('free');
+        $free     = trim($free);
+        $free_arr = explode("\n", $free);
+        $mem      = explode(" ", $free_arr[1]);
+        $mem      = array_filter($mem);
+        $mem      = array_merge($mem);
+        return sprintf('%.2f%%', $mem[2] / $mem[1] * 100);
+    }
+}

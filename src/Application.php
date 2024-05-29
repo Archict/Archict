@@ -25,14 +25,30 @@
 
 declare(strict_types=1);
 
-use Archict\Core\Core;
-use Archict\Router\Router;
-use GuzzleHttp\Psr7\ServerRequest;
+namespace Archict\Archict;
 
-require_once __DIR__ . '/../vendor/autoload.php';
+use Archict\Archict\Controller\HomeController;
+use Archict\Archict\Controller\StatusController;
+use Archict\Archict\Services\StatusService;
+use Archict\Archict\Services\Twig;
+use Archict\Brick\ListeningEvent;
+use Archict\Brick\Service;
+use Archict\Router\Method;
+use Archict\Router\RouteCollectorEvent;
 
-$core = Core::build();
-$core->load();
-$router = $core->service_manager->get(Router::class);
-$router->route(ServerRequest::fromGlobals());
-$router->response();
+#[Service]
+final readonly class Application
+{
+    public function __construct(
+        private StatusService $status_service,
+        private Twig $twig,
+    ) {
+    }
+
+    #[ListeningEvent]
+    public function collectRoutes(RouteCollectorEvent $collector): void
+    {
+        $collector->addRoute(Method::GET, '', new HomeController($this->twig));
+        $collector->addRoute('GET', '/status', new StatusController($this->status_service));
+    }
+}
