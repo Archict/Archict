@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f17519f0b471acfefaa20e755c548386",
+    "content-hash": "12c0b6444e445dd46c81f12c44b9eb6a",
     "packages": [
         {
             "name": "archict/brick",
@@ -48,23 +48,23 @@
         },
         {
             "name": "archict/core",
-            "version": "v0.2.2",
+            "version": "v0.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Archict/core.git",
-                "reference": "75fdd83e0268609b34d9e48332aa1379f952d464"
+                "reference": "6a7ab537c43df994de363c4622b25ef541ab7b82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Archict/core/zipball/75fdd83e0268609b34d9e48332aa1379f952d464",
-                "reference": "75fdd83e0268609b34d9e48332aa1379f952d464",
+                "url": "https://api.github.com/repos/Archict/core/zipball/6a7ab537c43df994de363c4622b25ef541ab7b82",
+                "reference": "6a7ab537c43df994de363c4622b25ef541ab7b82",
                 "shasum": ""
             },
             "require": {
                 "archict/brick": "^0",
                 "azjezz/psl": "^2.9",
                 "composer-runtime-api": "^2.2",
-                "composer/class-map-generator": "^1.1",
+                "composer/class-map-generator": "^1.3",
                 "cuyz/valinor": "^1.12",
                 "php": ">= 8.2",
                 "psr/simple-cache": "^3.0",
@@ -91,27 +91,27 @@
             "description": "Heart of Archict, this library load and manage Bricks",
             "support": {
                 "issues": "https://github.com/Archict/core/issues",
-                "source": "https://github.com/Archict/core/tree/v0.2.2"
+                "source": "https://github.com/Archict/core/tree/v0.3.1"
             },
-            "time": "2024-05-28T16:36:08+00:00"
+            "time": "2024-06-07T16:01:21+00:00"
         },
         {
             "name": "archict/router",
-            "version": "v0.2.2",
+            "version": "v0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Archict/router.git",
-                "reference": "38241857e30da9123d9f62f258f710f4bdc8e65a"
+                "reference": "b6567b9e6ae6079a33673bd0b22e26b03b0ca419"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Archict/router/zipball/38241857e30da9123d9f62f258f710f4bdc8e65a",
-                "reference": "38241857e30da9123d9f62f258f710f4bdc8e65a",
+                "url": "https://api.github.com/repos/Archict/router/zipball/b6567b9e6ae6079a33673bd0b22e26b03b0ca419",
+                "reference": "b6567b9e6ae6079a33673bd0b22e26b03b0ca419",
                 "shasum": ""
             },
             "require": {
                 "archict/brick": "^0",
-                "archict/core": "^0.2",
+                "archict/core": "^0.3",
                 "cuyz/valinor": "^1.12",
                 "ext-simplexml": "*",
                 "guzzlehttp/psr7": "^2.6",
@@ -138,9 +138,9 @@
             "description": "Simple HTTP router",
             "support": {
                 "issues": "https://github.com/Archict/router/issues",
-                "source": "https://github.com/Archict/router/tree/v0.2.2"
+                "source": "https://github.com/Archict/router/tree/v0.3.0"
             },
-            "time": "2024-05-29T16:31:24+00:00"
+            "time": "2024-06-07T16:12:33+00:00"
         },
         {
             "name": "azjezz/psl",
@@ -218,16 +218,16 @@
         },
         {
             "name": "composer/class-map-generator",
-            "version": "1.1.1",
+            "version": "1.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/class-map-generator.git",
-                "reference": "8286a62d243312ed99b3eee20d5005c961adb311"
+                "reference": "acd227952154850d0bb7d65caa4f9edf9cd806a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/class-map-generator/zipball/8286a62d243312ed99b3eee20d5005c961adb311",
-                "reference": "8286a62d243312ed99b3eee20d5005c961adb311",
+                "url": "https://api.github.com/repos/composer/class-map-generator/zipball/acd227952154850d0bb7d65caa4f9edf9cd806a7",
+                "reference": "acd227952154850d0bb7d65caa4f9edf9cd806a7",
                 "shasum": ""
             },
             "require": {
@@ -271,7 +271,7 @@
             ],
             "support": {
                 "issues": "https://github.com/composer/class-map-generator/issues",
-                "source": "https://github.com/composer/class-map-generator/tree/1.1.1"
+                "source": "https://github.com/composer/class-map-generator/tree/1.3.2"
             },
             "funding": [
                 {
@@ -287,7 +287,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-03-15T12:53:41+00:00"
+            "time": "2024-05-31T19:45:56+00:00"
         },
         {
             "name": "composer/pcre",
@@ -1030,16 +1030,16 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v7.0.7",
+            "version": "v7.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "4d58f0f4fe95a30d7b538d71197135483560b97c"
+                "reference": "fbb0ba67688b780efbc886c1a0a0948dcf7205d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/4d58f0f4fe95a30d7b538d71197135483560b97c",
-                "reference": "4d58f0f4fe95a30d7b538d71197135483560b97c",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/fbb0ba67688b780efbc886c1a0a0948dcf7205d6",
+                "reference": "fbb0ba67688b780efbc886c1a0a0948dcf7205d6",
                 "shasum": ""
             },
             "require": {
@@ -1074,7 +1074,7 @@
             "description": "Finds files and directories via an intuitive fluent interface",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/finder/tree/v7.0.7"
+                "source": "https://github.com/symfony/finder/tree/v7.1.1"
             },
             "funding": [
                 {
@@ -1090,7 +1090,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-04-28T11:44:19+00:00"
+            "time": "2024-05-31T14:57:53+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -1333,16 +1333,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v7.0.7",
+            "version": "v7.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "0d3916ae69ea28b59d94b60c4f2b50f4e25adb5c"
+                "reference": "fa34c77015aa6720469db7003567b9f772492bf2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/0d3916ae69ea28b59d94b60c4f2b50f4e25adb5c",
-                "reference": "0d3916ae69ea28b59d94b60c4f2b50f4e25adb5c",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/fa34c77015aa6720469db7003567b9f772492bf2",
+                "reference": "fa34c77015aa6720469db7003567b9f772492bf2",
                 "shasum": ""
             },
             "require": {
@@ -1384,7 +1384,7 @@
             "description": "Loads and dumps YAML files",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/yaml/tree/v7.0.7"
+                "source": "https://github.com/symfony/yaml/tree/v7.1.1"
             },
             "funding": [
                 {
@@ -1400,7 +1400,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-04-28T11:44:19+00:00"
+            "time": "2024-05-31T14:57:53+00:00"
         },
         {
             "name": "twig/twig",
