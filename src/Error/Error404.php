@@ -27,41 +27,23 @@ declare(strict_types=1);
 
 namespace Archict\Archict\Error;
 
+use Archict\Archict\Services\Twig;
 use Archict\Router\ResponseHandler;
 use GuzzleHttp\Psr7\HttpFactory;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-final class Error404 implements ResponseHandler
+final readonly class Error404 implements ResponseHandler
 {
+    public function __construct(
+        private Twig $twig,
+    ) {
+    }
+
     public function handleResponse(ResponseInterface $response, ServerRequestInterface $request): ResponseInterface
     {
         $factory = new HttpFactory();
         $path    = $request->getUri()->getPath();
-        return $response->withBody(
-            $factory->createStream(
-                <<<HTML
-            <!DOCTYPE html>
-            <html lang="en">
-            <head>
-                <title>Page not found</title>
-                <style>
-                body {
-                    width: 100%;
-                    height: 100vh;
-                    font-size: 2em;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                }
-                </style>
-            </head>
-            <body>
-                <span>Page '<code>$path</code>' not found!</span>
-            </body>
-            </html>
-            HTML
-            )
-        );
+        return $response->withBody($factory->createStream($this->twig->render('404.html.twig', ['path' => $path])));
     }
 }
